@@ -16,6 +16,7 @@
 - `5.the-dual-life-of-an-object/` - 객체의 이중성 관련 연습 문제
 - `8.bug-and-error/` - 버그와 에러 처리 관련 연습 문제
 - `10.module/` - 모듈 시스템 관련 연습 문제
+- `11.asynchronous-programming/` - 비동기 프로그래밍 관련 연습 문제
 
 ## 📝 내용
 
@@ -70,3 +71,42 @@ CommonJS 모듈 시스템에서 순환 종속성이 어떻게 작동하는지 �
 - `exports.속성 = 값` vs `module.exports = {...}`의 차이
 - 순환 종속성에서 객체 참조 유지/끊김의 원리
 - CommonJS의 동적 모듈 로딩 메커니즘
+
+### 11장: 비동기 프로그래밍 (Asynchronous Programming)
+
+#### `tracing-a-small-knife.js` - 작은 칼 추적하기
+
+둥지 간 이동하는 칼을 추적하는 문제입니다.
+
+**문제 요약:**
+
+- 칼이 둥지 간 이동할 때마다 양쪽 둥지의 저장소에 "scalpel" 항목에 위치 정보 기록
+- 자신을 가리키는 둥지를 발견할 때까지 저장소에서 이동 경로 추적
+
+**구현 내용:**
+
+- `locateScalpel(nest)`: async/await와 while문을 사용한 구현
+- `anyStorage(nest, name)`: 둥지 저장소에서 데이터를 읽는 비동기 함수 시뮬레이션
+
+**학습 포인트:**
+
+- async/await를 사용한 비동기 반복 처리
+- Promise와 비동기 흐름 제어
+- 저장소 데이터를 통한 경로 추적 알고리즘
+
+#### `promise-all.js` - Promise.all 구현
+
+`Promise.all` 함수를 직접 구현한 예제입니다.
+
+**구현 내용:**
+
+- `Promise_all(promises)`: Promise.all과 동일한 동작을 하는 함수
+- 빈 배열 처리: 빈 배열일 때 즉시 빈 배열로 resolve
+- 여러 Promise를 병렬로 처리하고 모든 결과를 배열로 반환
+- 하나라도 실패하면 즉시 reject
+
+**학습 포인트:**
+
+- Promise 생성자와 resolve/reject 사용
+- 비동기 작업의 병렬 처리
+- Promise 체이닝과 에러 전파
