@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Courier New", monospace;
+  background-color: #1e1e1e;
+  color: #d4d4d4;
+  padding: 20px;
+}
+
+.workbench {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: #4ec9b0;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.container {
+  margin-bottom: 20px;
+}
+
+#code {
+  width: 100%;
+  min-height: 300px;
+  padding: 15px;
+  background-color: #252526;
+  color: #d4d4d4;
+  border: 1px solid #3e3e42;
+  border-radius: 4px;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  resize: vertical;
+}
+
+#code:focus {
+  outline: none;
+  border-color: #007acc;
+}
+
+#run-button {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#run-button:hover {
+  background-color: #005a9e;
+}
+
+#run-button:active {
+  background-color: #004578;
+}
+
+.output {
+  background-color: #252526;
+  border: 1px solid #3e3e42;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.output h2 {
+  color: #4ec9b0;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+#output {
+  background-color: #1e1e1e;
+  padding: 15px;
+  border-radius: 4px;
+  min-height: 100px;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  color: #d4d4d4;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#output:empty::before {
+  content: "출력이 여기에 표시됩니다...";
+  color: #6a6a6a;
+}
