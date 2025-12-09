@@ -1,16 +1,15 @@
 function asTabs(node) {
-  const children = Array.from(node.children);
+  const children = Array.from(node.children).filter((child) =>
+    child.getAttribute("data-tabname")
+  );
 
-  const buttonContainer = document.createElement("div");
-  buttonContainer.className = "tab-buttons";
+  const buttonContainer = node.querySelector(".tab-buttons");
+  const buttons = Array.from(buttonContainer.querySelectorAll(".tab-button"));
 
   children.forEach((child, index) => {
-    const tabName = child.getAttribute("data-tabname");
-    if (!tabName) return;
+    const button = buttons[index];
 
-    const button = document.createElement("button");
-    button.textContent = tabName;
-    button.className = "tab-button";
+    if (!button) return;
 
     if (index === 0) {
       button.classList.add("active");
@@ -24,18 +23,14 @@ function asTabs(node) {
         c.style.display = "none";
       });
 
-      buttonContainer.querySelectorAll(".tab-button").forEach((btn) => {
+      buttons.forEach((btn) => {
         btn.classList.remove("active");
       });
       button.classList.add("active");
 
       child.style.display = "block";
     });
-
-    buttonContainer.appendChild(button);
   });
-
-  node.insertBefore(buttonContainer, node.firstChild);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
